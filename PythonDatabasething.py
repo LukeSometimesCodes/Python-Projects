@@ -21,4 +21,22 @@ for x in fileList:
             print(x)
 
 conn.close
+
+
+
+                 ##CLASS INHERITENCE ASSIGNMENT
+
+class Coach
+name = 'Johnson'
+email = 'johnsonemail'
+sport = 'football'
+
+class Athlete(Coach):
+    GPA = 1.5
+    Honors = False
+    
+class Parent(Coach):
+    mailing_list = True
+    donated = True
+
     
