@@ -1,3 +1,5 @@
+import sqlite3
+
 conn = sqlite3.connect('test2.db')
 with conn:
     cur = conn.cursor()
