@@ -4,19 +4,24 @@ from tkinter import *
 import webbrowser
 
 class ParentWindow(Frame):
+    
+        
     def __init__(self, master):
         Frame.__init__(self, master)
         self.master.title('Web Page Generator')
+        
+
+        
         self.btn = Button(self.master, text='Default HTML Page', width=30, height=2, command=self.defaultHTML)
-        self.btn.grid(padx=(10,10) , pady=(10,10))
+        self.btn.grid(row=1, column=2, padx=(200,10), pady=(50,10))
 
         self.btn = Button(self.master, text='Submit Custom Text', width=30, height=2, command=self.customHTML)
-        self.btn.grid(padx=(10,10) , pady=(10,10))
+        self.btn.grid(row=1, column=2, padx=(10,390), pady=(50,10))
 
    
        #this creates the box to type in
-        e = Entry(root, width=50)
-        e.grid()
+        self.e = Entry(self.master, width=100)
+        self.e.grid(row=0, column=2, pady=(50,10))
 
         
         #function that connects input box to do something with input
@@ -27,7 +32,7 @@ class ParentWindow(Frame):
 
 
     def customHTML(self):
-        htmlText = (get_data)
+        htmlText = self.e.get()
         htmlFile = open('index.html', 'w')
         htmlContent = '<html>\n<body>\n<h1>' + htmlText + '</html>\n</body>\n</h1>'
         htmlFile.write(htmlContent)
