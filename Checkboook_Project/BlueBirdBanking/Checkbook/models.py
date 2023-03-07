@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Account(models.Model):
     first_name = models.CharField(max_length=50)
@@ -13,11 +14,12 @@ class Account(models.Model):
     def __str__(self):
         return self.first_name + ' ' + self.last_name
 
+
 # Choices for a transaction
-TransactionTypes = [('Deposit', 'Deposit'), ('Withdrawal', 'Withdrawel')]
+TransactionTypes = [('Deposit', 'Deposit'), ('Withdrawal', 'Withdrawal')]
 
 
-#Creates the Transaction Model
+# Creates the Transaction Model
 class Transaction(models.Model):
     date = models.DateField()
     type = models.CharField(max_length=10, choices=TransactionTypes)
@@ -25,5 +27,5 @@ class Transaction(models.Model):
     description = models.CharField(max_length=100)
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
 
-    #Defines the model Manager for Transactions
+    # Defines the model Manager for Transactions
     Transactions = models.Manager()

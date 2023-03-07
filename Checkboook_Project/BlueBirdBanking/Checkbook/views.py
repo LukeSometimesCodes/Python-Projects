@@ -25,7 +25,7 @@ def create_account(request):
         if form.is_valid():  # Check to see if the submitted form is valid and if so, saves the form
             form.save()  # Saves new account
             return redirect('index')
-        content= {'form': form}  # Saves content to the template as a dictionary
+    content= {'form': form}  # Saves content to the template as a dictionary
         # adds content form to page
     return render(request, 'checkbook/CreateNewAccount.html', content)
 
@@ -36,7 +36,7 @@ def balance(request, pk):
     transactions = Transaction.Transactions.filter(account=pk)  # Retrieve all of that account's transactions
     current_total = account.initial_deposit  # Create account total variable, starting with initial deposit value
     table_contents = {}  # Create a dictionary into which transaction information will be placed
-    for t in transactions: # Loop through transactions and determine which is a deposit or withdrawal
+    for t in transactions:  # Loop through transactions and determine which is a deposit or withdrawal
         if t.type == 'Deposit':
             current_total += t.amount  # If deposit add amount to balance
             table_contents.update({t: current_total})  # Add transaction and total to the dictionary
@@ -45,7 +45,7 @@ def balance(request, pk):
             table_contents.update({t: current_total})  # Add transaction and total to the dicionary
     # Pass account, account total balance, and transaction information to the template
     content = {'account': account, 'table_contents': table_contents, 'balance': current_total}
-    return render(request, 'checkbook/BalanceSheet.html')
+    return render(request, 'checkbook/BalanceSheet.html', content)
 
 
 # This function will render the Transaction page when requested
