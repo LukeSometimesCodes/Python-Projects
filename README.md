@@ -3,7 +3,7 @@ Here are my Python Projects from The Tech Academy. In here I dive into Python, D
 
 Below are a few projects that I would like to highlight the most:
 
--Using tkinter and Python to automate moving files from one place to another based on when they were last edited:
+- Using tkinter and Python to automate moving files from one place to another based on when they were last edited:
 
 https://github.com/LukeSometimesCodes/Python-Projects/blob/main/file_transfer.py
 
